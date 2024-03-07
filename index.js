@@ -25,14 +25,14 @@ function isInvalidDate(date) {
 
 // your first API endpoint... 
 app.get("/api/:date", function (req, res) {
-  let date = new Date(req.params.date)
+  let date = new Date(req.params.date);
 
   if (isInvalidDate(date)) {
-    date = new Date(+req.params.date) // in case it's a string
+    date = new Date(+req.params.date); // in case it's a string
   }
 
   if(isInvalidDate(date)){
-    res.json({error: "Invalid Date"})
+    res.json({error: "Invalid Date"});
     return;
   }
 
@@ -43,13 +43,13 @@ app.get("/api/:date", function (req, res) {
 });
 
 app.get('/api', function(req, res) {
-  let date = new Date()
+  let date = new Date();
 
   res.json({
     unix: date.getTime(),
     utc: date.toUTCString()
   })
-})
+});
 
 // Listen on port set in environment variable or default to 3000
 var listener = app.listen(process.env.PORT || PORT, function () {
